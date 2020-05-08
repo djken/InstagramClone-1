@@ -1,38 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:layout_margin="16dp"
+    android:layout_margin="10dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".MainActivity">
-
-    <EditText
-        android:id="@+id/etDescription"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tvUserName"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Description..." />
-
-    <Button
-        android:id="@+id/btnCaptureImage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Take Picture" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="Username"
+        android:textSize="18dp"/>
 
     <ImageView
         android:id="@+id/ivPostImage"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_below="@+id/tvUserName"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="60dp"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <EditText
+        android:id="@+id/etDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivPostImage"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="10dp"
+        android:ems="10"
+        android:hint="Add a Description..."
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/btnSubmit"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Submit" />
+        android:layout_below="@+id/etDescription"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:textAllCaps="false"
+        android:textSize="18dp"
+        android:textColor="#fff"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="#49CAFA"
+        android:textStyle="bold"
+        android:text="Post" />
+
+    <Button
+        android:id="@+id/btnCaptureImage"
+        android:layout_width="132dp"
+        android:layout_height="85dp"
+        android:layout_below="@+id/ivPostImage"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="-21dp"
+        android:layout_marginEnd="-32dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/camera_shadow_fill"
+        android:padding="0dp"
+        android:text=" " />
 
 
-</LinearLayout>
+</RelativeLayout>

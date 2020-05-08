@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.parse.LogInCallback;
@@ -41,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         spCountry2 = findViewById(R.id.spCountry2);
 
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +51,6 @@ public class LoginActivity extends AppCompatActivity {
                 String password = etPassword.getText().toString();
                 loginUser(username, password);
             }
-
         });
 
         screenSpinner();
@@ -88,6 +89,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     return;
                 }
+
                 // Navigate to Main Activity if the user has signed in properly
                 goMainActivity();
                 Toast.makeText(LoginActivity.this, "Success!", Toast.LENGTH_SHORT).show();

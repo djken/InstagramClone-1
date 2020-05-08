@@ -6,13 +6,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -20,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etUsername;
     private EditText etPassword;
     private Button btnLogin;
+    private Spinner spCountry2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +39,7 @@ public class LoginActivity extends AppCompatActivity {
         etUsername = findViewById(R.id.etUsername);
         etPassword = findViewById(R.id.etPassword);
         btnLogin = findViewById(R.id.btnLogin);
+        spCountry2 = findViewById(R.id.spCountry2);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,8 +49,33 @@ public class LoginActivity extends AppCompatActivity {
                 String password = etPassword.getText().toString();
                 loginUser(username, password);
             }
+
         });
+
+        screenSpinner();
     }
+
+    private void screenSpinner() {
+        // Spinner element
+        Spinner spinner = (Spinner) spCountry2;
+        // Spinner Drop down elements
+        List<String> categories = new ArrayList<String>();
+        categories.add("Creole (Haiti)");
+        categories.add("English (United Stated)");
+        categories.add("French (France)");
+        categories.add("Spanish (Dominican Republic)");
+        categories.add("Portuguese (Brazil)");
+
+        // Creating adapter for spinner
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
+
+        // Drop down layout style - list view with radio button
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // attaching data adapter to spinner
+        spinner.setAdapter(dataAdapter);
+    }
+
     private void loginUser(String username, String password) {
         Log.i(TAG, "Attempting to login user " + username);
 
